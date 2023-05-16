@@ -10,16 +10,24 @@ class  App extends Component {
     super();
     this.state={
         title:"Hii from React",
-        productData:JSON
+        productData:JSON,
+        filteredData:JSON
       }
+  }
+
+  filtereData=(keyword)=>{
+      let output= this.state.productData.filter((data)=>{
+        return data.name.toLowerCase().indexOf(keyword.toLowerCase()) > -1;
+      })
+      this.setState({filteredData:output})
   }
 
   render() {
     console.log(JSON)
     return (
       <div className="App">
-        <Header/>
-        <ProductDisplay data={this.state.productData}/>
+        <Header userInput={(data)=>this.filtereData(data)}/>
+        <ProductDisplay products={this.state.filteredData}/>
         {/* <h1>{this.state.title}</h1> */}
         <Footer year="2023"/>
       </div>

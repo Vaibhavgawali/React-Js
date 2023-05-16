@@ -8,12 +8,19 @@ class Header extends Component{
             keyword:"User Input Here"
         }
     }
+
+    handleChange=(e)=>{
+        console.log(e.target.value)
+        this.setState({keyword:e.target.value})
+        this.props.userInput(e.target.value);
+    }
+
     render(){
         return(
             <>
                 <header>
                     <div className="logo">React App</div>
-                    <input/>
+                    <input onChange={this.handleChange}/>
                     <div style={{color:'white',fontSize:'20px'}}>{this.state.keyword}</div>
                 </header>
                 <hr/>
