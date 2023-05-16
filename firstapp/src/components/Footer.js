@@ -1,16 +1,15 @@
-import React, { Component } from "react";
+import React from "react";
 
-class Footer extends Component{
-    render(){
-        return(
-            <div>
-                <hr/>
-                <center>
-                    <h2>&copy; Vaibhav Gawali 2023</h2> 
-                </center>
-            </div>
-        )   
-    }
+const Footer =(props)=> {
+    console.log(props)
+    return(
+        <div>
+            <hr/>
+            <center>
+                <h2>&copy; Vaibhav Gawali {props.year}</h2> 
+            </center>
+        </div>
+    )   
 }
 
 export default Footer;
